@@ -1,0 +1,14 @@
+applications:
+- services:
+  - VoucherHound-MAS
+  - VoucherHound-Push
+  - VoucherHound-MobileData
+  - VoucherHound-Mobile Quality Assurance
+  disk_quota: 1024M
+  host: voucherhound
+  name: VoucherHound
+  command: node app.js
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 128M
