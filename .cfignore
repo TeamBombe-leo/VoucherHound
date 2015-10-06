@@ -1,9 +1,1 @@
-.settings
-tests
-.cfignore
-.jazzignore
-.project
-READEME_dev.md
-build.xml
-Gruntfile.js
 node_modules
