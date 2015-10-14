@@ -69,13 +69,13 @@ app.get('/auth/sso/callback', function(req, res, next) {
     })(req,res,next);
 });
 
-//app.get('/hello', ensureAuthenticated, function(request, response) {
-//	 response.redirect('/welcome.html');
-//});
-    
 app.get('/hello', ensureAuthenticated, function(request, response) {
-    response.send('Hello, '+ request.user['displayName'] + '!\n' + '<a href="/logout">Log Out</a>');
+	 response.redirect('/welcome.html');
 });
+    
+//app.get('/hello', ensureAuthenticated, function(request, response) {
+//    response.send('Hello, '+ request.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
+//});
 
 
 app.get('/logout', function(req, res){
