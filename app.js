@@ -1,12 +1,17 @@
 var express = require('express');
+var jade = require('jade');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var OpenIDConnectStrategy = require('passport-idaas-openidconnect').IDaaSOIDCStrategy;
 var app = express();
 
-//serve the files out of ./public as our main files
+// serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
+// set the directory for views
+app.set("views", __dirname + "/public");
+// set view engine
+app.set('view engine', 'jade');
 
 app.use(cookieParser());
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }));
@@ -69,13 +74,14 @@ app.get('/auth/sso/callback', function(req, res, next) {
     })(req,res,next);
 });
 
-app.get('/hello', ensureAuthenticated, function(request, response) {
-	 response.redirect('/welcome.html');
-});
-    
 //app.get('/hello', ensureAuthenticated, function(request, response) {
-//    response.send('Hello, '+ request.user['id'] + '!\n' + '<a href="/logout">Log Out</a>');
+//	 response.redirect('/welcome.html');
 //});
+    
+app.get('/hello', ensureAuthenticated, function(request, response) {
+	  var displayName = request.user['_json'].displayName;
+    response.render('welcome.html', {username:displayName});
+});
 
 
 app.get('/logout', function(req, res){
