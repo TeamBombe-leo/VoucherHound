@@ -80,7 +80,7 @@ app.get('/auth/sso/callback', function(req, res, next) {
     
 app.get('/hello', ensureAuthenticated, function(request, response) {
 	  var displayName = request.user['_json'].displayName;
-    response.render('welcome.html', {username:displayName});
+    response.redirect('welcome.html');
 });
 
 
