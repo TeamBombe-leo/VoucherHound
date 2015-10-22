@@ -80,3 +80,26 @@ pre {
 	margin: 0;
 }
 
+.bs-nav {
+	background: #ffffff;
+	border-bottom: none;
+}
+
+.bs-nav .navbar-brand {
+	padding: 5px;
+	height: 60px;	
+}
+
+.bs-nav .logo-icon {
+	max-width: 50px;
+	height: auto;
+}
+
+.bs-nav .navbar-toggle .icon-bar {
+	background-color: #3b4b54;
+}
+
+.bs-nav .navbar-header .navbar-toggle:focus, .bs-docs-nav .navbar-header .navbar-toggle:hover {
+	background-color: #f9f9f9;
+    border-color: #f9f9f9;
+}
