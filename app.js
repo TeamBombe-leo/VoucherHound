@@ -80,7 +80,7 @@ app.get('/auth/sso/callback', function(req, res, next) {
     
 app.get('/hello', ensureAuthenticated, function(request, response) {
 	  var displayName = request.user['_json'].displayName;
-    response.send('<!DOCTYPE html><html><head><title>Voucher Hound</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="stylesheets/style.css"></head><body><table><tr><td style= "width:30%;"><img class = "newappIcon" src="images/hound_dog_logo.png"><td><h1>Voucher Hound</h1><h3>Welcome <%= displayName %>!</h3><p><span class = "blue"><a href="#">Search for hot spots</a></span><span class = "blue" style="padding-left:20px;"><a href="/logout">Log out</a></span></table></body></html>');
+    response.send('<!DOCTYPE html><html><head><title>Voucher Hound</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="stylesheets/style.css"></head><body><table><tr><td style= "width:30%;"><img class = "newappIcon" src="images/hound_dog_logo.png"><td><h1>Voucher Hound</h1><h3>Welcome ' + displayName + '!</h3><p><span class = "blue"><a href="#">Search for hot spots</a></span><span class = "blue" style="padding-left:20px;"><a href="/logout">Log out</a></span></table></body></html>');
 });
 
 
