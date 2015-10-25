@@ -6,6 +6,9 @@ var session = require('express-session');
 var OpenIDConnectStrategy = require('passport-idaas-openidconnect').IDaaSOIDCStrategy;
 var app = express();
 
+// var for authentication
+var authenticated;
+
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 // set the directory for views
@@ -60,13 +63,14 @@ app.get('/login', passport.authenticate('openidconnect', {}));
 function ensureAuthenticated(req, res, next) {
     if(!req.isAuthenticated()) {
         req.session.originalUrl = req.originalUrl;
-        res.redirect('/login');
+        res.redirect('/');
     } else {
         return next();
     }
 }
 
-app.get('/auth/sso/callback', function(req, res, next) {               
+app.get('/auth/sso/callback', function(req, res, next) {
+	authenticated = true;
     var redirect_url = req.session.originalUrl;                
     passport.authenticate('openidconnect', {
         successRedirect: '/hello',                                
@@ -80,22 +84,27 @@ app.get('/auth/sso/callback', function(req, res, next) {
     
 app.get('/hello', ensureAuthenticated, function(request, response) {
 	  var displayName = request.user['_json'].displayName;
-    response.send('<!DOCTYPE html><html><head><title>Voucher Hound</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="stylesheets/style.css"></head><body><div id="bodyContent"><img class = "newappIconWelcome" src="images/hound_dog_logo.png"><div id="welcomeContent"><h3>Welcome ' + displayName + '</h3></div><ul><li title="Vouchers"><img class="imgGrayscale" src="images/vouchers.png" width="90px" height="90px"></li><li title="Hound"><img class="imgGrayscale" src="images/geo.png" width="90px" height="90px"></li><li title="Map"><a href="/map.html"><img class="imgGrayscale" src="images/map.png" width="90px" height="90px"></a></li><li title="Account"><img class="imgGrayscale" src="images/account.png" width="90px" height="90px"></li><li title="Settings"><img class="imgGrayscale" src="images/preferences.png" width="90px" height="90px"></li><li title="Log Out"><a href="/logout"><img class="imgGrayscale" src="images/logout.png" width="90px" height="90px"></a></li></ul></div></body></html>');
+	  authenticated = true;
+    response.send('<!DOCTYPE html><html><head><title>Voucher Hound</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="stylesheets/style.css" media="min-device-width: 481px"><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="stylesheets/mobile.css"></head><body><div id="bodyContent"><img class = "newappIconWelcome" src="images/hound_dog_logo.png"><div id="welcomeContent"><h3>Welcome ' + displayName + '</h3></div><div id="optionMenu"><ul><li title="Vouchers"><img class="imgGrayscale" src="images/vouchers.png" width="90px" height="90px"></li><li title="Hound"><img class="imgGrayscale" src="images/geo.png" width="90px" height="90px"></li><li title="Map"><a href="/map"><img class="imgGrayscale" src="images/map.png" width="90px" height="90px"></a></li><li title="Account"><img class="imgGrayscale" src="images/account.png" width="90px" height="90px"></li><li title="Settings"><img class="imgGrayscale" src="images/preferences.png" width="90px" height="90px"></li><li title="Log Out"><a href="/logout"><img class="imgGrayscale" src="images/logout.png" width="90px" height="90px"></a></li></ul></div></div></body></html>');
 });
 
+app.get('/map', ensureAuthenticated, function(request, response) {
+response.redirect('/map.html');
+});
 
 app.get('/logout', function(req, res){
-    req.logout();
+    authenticated = false;
+	req.logout();
     res.redirect('/');
 });
 
 app.get('/failure', function(req, res) { 
-    res.send('Login failed'); 
+    res.redirect('/'); 
 });
 
-app.get('/', function (req, res) {
-    res.send('<h1>Bluemix Service: Single Sign On</h1>' + '<p>Sign In with a Social Identity Source (SIS): Cloud directory, Facebook, Google+ or LinkedIn.</p>' + '<a href="/auth/sso/callback">Sign In with a SIS</a>');
-});
+//app.get('/', function (req, res) {
+//    res.send('<h1>Bluemix Service: Single Sign On</h1>' + '<p>Sign In with a Social Identity Source (SIS): Cloud directory, Facebook, Google+ or LinkedIn.</p>' + '<a href="/auth/sso/callback">Sign In with a SIS</a>');
+//});
 var appport = process.env.VCAP_APP_PORT || 8888;
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 var server = app.listen(appport, function () {
