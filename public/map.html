@@ -1,41 +1,61 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Voucher Hound</title>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="stylesheets/style.css">
-      <script src="js/h5utils.js"></script>
-   </head>
-   <body>
-      <div id="bodyContent">
-         <img class = "newappIconWelcome" src="images/hound_dog_logo.png">
-         <div id="welcomeContent">
-            <h3>Finding your location: <span id="status">checking...</span></h3>
-         </div>
-         <article>
-         </article>
-      </div>
+	<head>
+		<title>Voucher Hound</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	    <!-- JQuery -->
+	    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	    
+	    <!-- Bootstrap Files -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+		
+	    <link rel="stylesheet" href="stylesheets/style.css">
+		
+	</head>
+	
+	<body class="map-page">
+		<div class="phone-bg">
+			<div class="phone-inner">
+				<a class="back-btn" href="/welcome.html">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<div class="loading">
+					<span class="loader"></span>
+					<h3 class="slogan">Requesting your location...</h3>
+					<div class="alert alert-warning">
+						<span class="glyphicon glyphicon-map-marker"></span>
+						<p>Please allow Voucher Hound to use your location</p>
+					</div>
+				</div>
+				<div id="map"></div>
+			</div>
+		</div>
       <script type="text/javascript" src="http://maps.apple.com/maps/api/js?sensor=false"></script>
       <script>
          function success(position) {
-           var s = document.querySelector('#status');
+           var s = $('.map-page');
            
            if (s.className == 'success') {
              // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
              return;
            }
            
-           s.innerHTML = "found you!";
-           s.className = 'success';
+		   $('.map-page').addClass('success');
+           $('.loading').hide('fast');
            
            var mapcanvas = document.createElement('div');
            mapcanvas.id = 'mapcanvas';
-           mapcanvas.style.height = '400px';
-           mapcanvas.style.width = '560px';
+           mapcanvas.style.height = '567px';
+           mapcanvas.style.width = '322px';
              
-           document.querySelector('article').appendChild(mapcanvas);
+           document.querySelector('#map').appendChild(mapcanvas);
            
            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
            var myOptions = {
@@ -69,7 +89,6 @@
          }
          
       </script>
-      </section>
       <script src="js/prettify.packed.js"></script>
       <script>
          var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

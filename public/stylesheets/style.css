@@ -149,6 +149,7 @@ pre {
 	overflow:hidden;
 	overflow-y:auto;
 	text-align: center;
+	position:relative;
 }
 
 h3.slogan {
@@ -182,6 +183,40 @@ h3.slogan {
 	margin: 0 auto;
 	height: auto;
 	max-width:100%;
+}
+
+.map-page .loading {
+	margin-top: 60px;
+}
+
+.map-page .alert {
+	margin:0 10%;
+}
+
+.map-page .alert span {
+	font-size: 3em;
+}
+
+.loader {
+	background: transparent url('../images/loader.gif') center center no-repeat;
+	width: 128px;
+	height: 64px;
+	display:block;
+	margin: 0 auto;
+}
+
+.back-btn {
+	position:absolute;
+	top:10px;
+	left:10px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	z-index: 999;
+	background: #fff;
+	box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
 }
 
 .no-padding {
