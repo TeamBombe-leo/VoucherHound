@@ -3,10 +3,11 @@
  */
 
 body,html {
-	background-color: #3b4b54; width : 100%;
+	background-color: #FFF; 
+	width : 100%;
 	height: 100%;
 	margin: 0 auto;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #ffffff;
 }
 
@@ -20,20 +21,10 @@ a:hover {
 }
 
 .newappIcon {
-	padding-top: 10%;
 	display: block;
 	margin: 0 auto;
-	padding-bottom: 2em;
+	padding: 50px 0 30px;
 	max-width:200px;
-}
-
-.newappIconWelcome {
-	padding-top: 5%;
-	display: block;
-	margin: 0 auto;
-	max-width:200px;
-	height: 150px;
-	width: 150px;
 }
 
 h1 {
@@ -52,24 +43,6 @@ h3 {
 #bodyContent {
 	margin: 0 auto;
 	max-width: 525px;
-}
-#welcomeContent {
-	width: 100%;	
-}
-
-#bodyContent li {
-	margin: 0 auto;
-	text-decoration: none;
-	list-style: none;
-	float: left;
-	padding-left: 50px;
-	padding-bottom: 30px;
-}
-
-#bodyContent ul li:after {
-	content: attr(title);
-	display: block;
-	text-align: center;
 }
 
 .imgGrayscale {
@@ -157,4 +130,61 @@ pre {
 .bs-nav .navbar-header .navbar-toggle:focus, .bs-docs-nav .navbar-header .navbar-toggle:hover {
 	background-color: #f9f9f9;
     border-color: #f9f9f9;
+}
+
+
+/** Phone Styles **/
+
+.phone-bg {
+	background: #FFF url('../images/phone.png') center 40px  no-repeat;
+	min-height: 856px;
+	overflow: hidden;
+}
+
+.phone-inner {
+	background-color: #3b4b54;
+	margin: 115px auto 0;
+	width:322px;
+	height:567px;
+	overflow:hidden;
+	overflow-y:auto;
+	text-align: center;
+}
+
+h3.slogan {
+	margin:20px 0 30px;
+}
+
+.btn-fb{
+	padding: 12px 24px;
+	font-weight: bold;
+}
+
+.option-menu {
+	padding: 0 20px;
+}
+
+.option-menu .row > div img {
+	max-width: 90%;
+	height: auto;
+}
+
+.option-menu .row > div:after {
+	content: attr(title);
+	display: block;
+	text-align: center;
+	padding-bottom:10px;
+}
+
+.welcome-page .app-logo {
+	padding: 5% 20% 0;
+	display: block;
+	margin: 0 auto;
+	height: auto;
+	max-width:100%;
+}
+
+.no-padding {
+   padding: 0 !important;
+   margin: 0 !important;
 }

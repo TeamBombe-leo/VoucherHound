@@ -14,39 +14,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+	
     <link rel="stylesheet" href="stylesheets/style.css">
   </head>
 
   <body>
-  <header role="banner" id="top" class="navbar navbar-static-top bs-nav">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <button aria-expanded="false" aria-controls="bs-navbar" data-target="#bs-navbar" data-toggle="collapse" type="button" class="navbar-toggle collapsed">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="/"><img class="logo-icon" src="images/hound_dog_logo.png"></a>
-	    </div>
-	    <nav class="navbar-collapse collapse" id="bs-navbar" aria-expanded="false" style="height: 1px;">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="/auth/sso/callback">Login</a></li>
-	        <li><a href="/about">About</a></li>
-	      </ul>
-	    </nav>
-	  </div>
-	</header>
-    <table>
-      <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/hound_dog_logo.png">
-        <td>
-            <h1>Voucher Hound</h1>
-            <h3 id="motd">We dig, you save!</h3>
-          <p>
-            <span class = "blue"><a class="btn btn-primary" href="/auth/sso/callback">Login with Facebook</a></span>
-    </table>
+	<div class="phone-bg">
+		<div class="phone-inner">
+			<img class="newappIcon" src="images/hound_dog_logo.png">
+			<h1>Voucher Hound</h1>
+			<h3 class="slogan">We dig, you save!</h3>
+			<a class="btn btn-primary btn-fb" href="/auth/sso/callback">Login with Facebook</a>
+		</div>
+	</div>
   </body>
 
 </html>
