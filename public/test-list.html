@@ -30,10 +30,14 @@
 					<div class="row voucher">
 						<div class="col-xs-12">
 							<a class="pop" href="#">
-								<span class="title">Fancy a taste of Span? Get 25% off (Mon-Fri)</span>
+								<span class="title">Fancy a taste of Spain? Get 25% off (Mon-Fri)</span>
 								<img src="images/vouchers/latasca.jpg"/>
 							</a>
 							<div class="details">
+								<div class="voucher-code">
+									<img class="qr-code" src="images/vouchers/qr-code.png">
+									<span class="code">Code: <strong>TASCA25</strong></span>
+								</div>
 								<div class="info">
 									<div class="col-xs-4 no-padding publisher">
 										<span class="glyphicon glyphicon-user"></span>
@@ -47,6 +51,10 @@
 										<span class="glyphicon glyphicon-time"></span>
 										21 days
 									</div>
+								</div>
+								<div class="terms">
+									<h5>Terms &amp; Conditions</h5>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 								</div>
 								<div class="buttons">
 									<div class="col-xs-6 no-padding">
@@ -67,6 +75,10 @@
 							</a>
 							<div class="details">
 								<div class="info">
+									<div class="voucher-code">
+										<img class="qr-code" src="images/vouchers/qr-code.png">
+										<span class="code">Code: <strong>TASCA25</strong></span>
+									</div>
 									<div class="col-xs-4 no-padding publisher">
 										<span class="glyphicon glyphicon-user"></span>
 										Currys
@@ -79,6 +91,10 @@
 										<span class="glyphicon glyphicon-time"></span>
 										3 days
 									</div>
+								</div>
+								<div class="terms">
+									<h5>Terms &amp; Conditions</h5>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 								</div>
 								<div class="buttons">
 									<div class="col-xs-6 no-padding">
@@ -98,6 +114,10 @@
 								<img src="images/vouchers/strada.jpg"/>
 							</a>
 							<div class="details">
+								<div class="voucher-code">
+									<img class="qr-code" src="images/vouchers/qr-code.png">
+									<span class="code">Code: <strong>TASCA25</strong></span>
+								</div>
 								<div class="info">
 									<div class="col-xs-4 no-padding publisher">
 										<span class="glyphicon glyphicon-user"></span>
@@ -111,6 +131,10 @@
 										<span class="glyphicon glyphicon-time"></span>
 										30 days
 									</div>
+								</div>
+								<div class="terms">
+									<h5>Terms &amp; Conditions</h5>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 								</div>
 								<div class="buttons">
 									<div class="col-xs-6 no-padding">
@@ -126,10 +150,14 @@
 					<div class="row voucher">
 						<div class="col-xs-12">
 							<a class="pop" href="#">
-								<span class="title">2 for 1 on a well deserved coffee break</span>
-								<img src="images/vouchers/nero.jpg"/>
+								<img class="qr-code" src="images/vouchers/qr-code.png">
+								<span class="code">Code: <strong>TASCA25</strong></span>
 							</a>
 							<div class="details">
+								<div class="voucher-code">
+									<span class="code">Code: <strong>NEROBUD</strong></span>
+									<img class="qr-code" src="images/vouchers/qr-code.png">
+								</div>
 								<div class="info">
 									<div class="col-xs-4 no-padding publisher">
 										<span class="glyphicon glyphicon-user"></span>
@@ -143,6 +171,10 @@
 										<span class="glyphicon glyphicon-time"></span>
 										11 days
 									</div>
+								</div>
+								<div class="terms">
+									<h5>Terms &amp; Conditions</h5>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 								</div>
 								<div class="buttons">
 									<div class="col-xs-6 no-padding">
@@ -159,5 +191,18 @@
 				
 			</div>
 		</div>
+		<script type="text/javascript">
+			$(".btn-success").click(function (ev) {
+				ev.preventDefault();
+				var $parent = $(this).closest('.voucher');
+				$parent.find('.voucher-code').toggle('fast');
+				$parent.find('.pop').toggle('fast');
+			});
+			$(".btn-info").click(function (ev) {
+				ev.preventDefault();
+				var $parent = $(this).closest('.voucher');
+				$parent.find('.terms').toggle('fast');
+			});
+		</script>
    </body>
 </html>

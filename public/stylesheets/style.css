@@ -246,6 +246,41 @@ h3.slogan {
 	border-radius: 0;
 }
 
+.voucher-list .voucher .details .voucher-code {
+	display: none;
+	position: relative;
+}
+
+.voucher-list .voucher .details .voucher-code .qr-code{
+	padding: 12%;
+}
+
+.voucher-list .voucher .details .voucher-code .code{
+	position: absolute;
+	bottom: 5%;
+	left: 0;
+	width:100%;
+	display: block;
+}
+
+.voucher-list .voucher .details .terms {
+	display: none;
+	color: #333;
+	text-align: left;
+	padding:0 10px;
+}
+
+.voucher-list .voucher .details h5 {
+	font-weight: 600;
+	margin-top: 0;
+	padding-top: 10px;
+	border-top: 1px solid #EEE;
+}
+
+.voucher-list .voucher .details p {
+	font-size: 0.8em;
+}
+
 .loader {
 	background: transparent url('../images/loader.gif') center center no-repeat;
 	width: 128px;
