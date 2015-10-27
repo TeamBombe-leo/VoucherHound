@@ -9,6 +9,9 @@
 		"express": "4.12.x",
 		"jade": ">= 0.0.1",
         "passport": "0.2.2",
+        "hogan-express": "*",
+        "request":"*",
+        "mysql": "*",
         "body-parser": "latest",
         "cookie-parser": "latest",
         "express-session": "latest"
