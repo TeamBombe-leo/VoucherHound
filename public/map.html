@@ -26,6 +26,9 @@
 				<a class="back-btn" href="/welcome.html">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
+				<a title="List vouchers" class="more-btn" href="#">
+					<span class="glyphicon glyphicon-th-list"></span>
+				</a>
 				<div class="loading">
 					<span class="loader"></span>
 					<h3 class="slogan">Requesting your location...</h3>
@@ -35,6 +38,51 @@
 					</div>
 				</div>
 				<div id="map"></div>
+				<div class="voucher-list">
+					<div class="row voucher" id="voucher1">
+						<div class="col-xs-12">
+							<div class="pop">
+								<span class="title">Well deserved 2 for 1 coffee break?</span>
+								<img class="qr-code" src="images/vouchers/nero.jpg">
+							</div>
+							<div class="details">
+								<div class="voucher-code">
+									<span class="code">Code: <strong>NEROBUD</strong></span>
+									<img class="qr-code" src="images/vouchers/qr-code.png">
+								</div>
+								<div class="info">
+									<div class="col-xs-4 no-padding publisher">
+										<span class="glyphicon glyphicon-user"></span>
+										Cafe Nero
+									</div>
+									<div class="col-xs-4 no-padding location">
+										<span class="glyphicon glyphicon-map-marker"></span>
+										0.2 miles
+									</div>
+									<div class="col-xs-4 no-padding expiry">
+										<span class="glyphicon glyphicon-time"></span>
+										11 days
+									</div>
+								</div>
+								<div class="terms">
+									<h5>Terms &amp; Conditions</h5>
+									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+								</div>
+								<div class="buttons">
+									<div class="col-xs-6 no-padding">
+										<a class="btn btn-success" href="#">Use it now</a>
+									</div>
+									<div class="col-xs-6 no-padding">
+										<a class="btn btn-info" href="#">More details</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="voucher" id="voucher2">
+						Voucher 2
+					</div>
+				</div>
 			</div>
 		</div>
       <script type="text/javascript" src="http://maps.apple.com/maps/api/js?sensor=false"></script>
@@ -49,6 +97,7 @@
            
 		   $('.map-page').addClass('success');
            $('.loading').hide('fast');
+           $('.more-btn').show('fast');
            
            var mapcanvas = document.createElement('div');
            mapcanvas.id = 'mapcanvas';
@@ -70,8 +119,54 @@
            var marker = new google.maps.Marker({
                position: latlng, 
                map: map, 
-               title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
+               title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)",
+               icon: 'images/marker.png'
            });
+           
+   	       var voucher1 = new google.maps.Marker({
+        	   position: {lat:51.898491, lng:-2.077888},
+        	   map: map,
+        	   animation: google.maps.Animation.DROP,
+        	   title: 'voucher 1'
+           });
+   	       
+	   	    var voucher2 = new google.maps.Marker({
+	     	   position: {lat:51.893411, lng:-2.077668},
+	     	   map: map,
+	     	   animation: google.maps.Animation.DROP,
+	     	   title: 'voucher 2'
+	        });
+   	       
+   	       voucher1.addListener('click', function() {
+   	    	   if ($('#voucher1').hasClass('active')){
+					$('#voucher1').toggleClass('active');	
+					mapcanvas.style.height = '567px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(marker.getPosition());
+				}
+   	    	   else {
+					mapcanvas.style.height = '150px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(voucher1.getPosition());
+					$('#voucher1').toggleClass('active');
+   	    	   }
+	   	   });
+   	       
+   	    voucher2.addListener('click', function() {
+	    	   if ($('#voucher2').hasClass('active')){
+					$('#voucher2').toggleClass('active');	
+					mapcanvas.style.height = '567px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(marker.getPosition());
+				}
+	    	   else {
+					mapcanvas.style.height = '150px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(voucher2.getPosition());
+					$('#voucher2').toggleClass('active');
+	    	   }
+	   	   });
+   	    
          }
          
          function error(msg) {
@@ -90,15 +185,18 @@
          
       </script>
       <script src="js/prettify.packed.js"></script>
-      <script>
-         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script>
-         try {
-         var pageTracker = _gat._getTracker("UA-1656750-18");
-         pageTracker._trackPageview();
-         } catch(err) {}
-      </script>
+      		<script type="text/javascript">
+			$(".btn-success").click(function (ev) {
+				ev.preventDefault();
+				var $parent = $(this).closest('.voucher');
+				$parent.find('.voucher-code').toggle('fast');
+				$parent.find('.pop').toggle('fast');
+			});
+			$(".btn-info").click(function (ev) {
+				ev.preventDefault();
+				var $parent = $(this).closest('.voucher');
+				$parent.find('.terms').toggle('fast');
+			});
+		</script>
    </body>
 </html>
