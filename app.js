@@ -6,9 +6,6 @@ var session = require('express-session');
 var OpenIDConnectStrategy = require('passport-idaas-openidconnect').IDaaSOIDCStrategy;
 var app = express();
 
-// var for authentication
-var authenticated;
-
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 // set the directory for views
@@ -84,7 +81,6 @@ app.get('/auth/sso/callback', function(req, res, next) {
     
 app.get('/hello', ensureAuthenticated, function(request, response) {
 	  var displayName = request.user['_json'].displayName;
-	  authenticated = true;
 	  response.redirect('/welcome.html');
     //response.send('<!DOCTYPE html><html><head><title>Voucher Hound</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="stylesheets/style.css" media="min-device-width: 481px"><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="stylesheets/mobile.css"></head><body><div id="bodyContent"><img class = "newappIconWelcome" src="images/hound_dog_logo.png"><div id="welcomeContent"><h3>Welcome ' + displayName + '</h3></div><div id="optionMenu"><ul><li title="Vouchers"><img class="imgGrayscale" src="images/vouchers.png" width="90px" height="90px"></li><li title="Hound"><img class="imgGrayscale" src="images/geo.png" width="90px" height="90px"></li><li title="Map"><a href="/map"><img class="imgGrayscale" src="images/map.png" width="90px" height="90px"></a></li><li title="Account"><img class="imgGrayscale" src="images/account.png" width="90px" height="90px"></li><li title="Settings"><img class="imgGrayscale" src="images/preferences.png" width="90px" height="90px"></li><li title="Log Out"><a href="/logout"><img class="imgGrayscale" src="images/logout.png" width="90px" height="90px"></a></li></ul></div></div></body></html>');
 });
