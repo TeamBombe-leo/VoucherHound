@@ -3,15 +3,47 @@ var jade = require('jade');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var mysql = require('mysql');
+var hogan = require('hogan-express');
+var http = require('http');
 var OpenIDConnectStrategy = require('passport-idaas-openidconnect').IDaaSOIDCStrategy;
+
+var port = (process.env.VCAP_APP_PORT || 3000);
+var host = (process.env.VCAP_APP_HOST || 'localhost');
+
+// all environments
 var app = express();
 
+//check if application is being run in cloud environment
+if (process.env.VCAP_SERVICES) {
+  var services = JSON.parse(process.env.VCAP_SERVICES);
+
+  // look for a service starting with 'SQL'
+  for (var svcName in services) {
+    if (svcName.match(/^sql/)) {
+      var mysqlCreds = services[svcName][0]['credentials'];
+      var db = mysql.createConnection({
+        host: mysqlCreds.host,
+        port: mysqlCreds.port,
+        user: mysqlCreds.user,
+        password: mysqlCreds.password,
+        database: mysqlCreds.name
+      });
+
+      createTable();
+    }
+  }
+}
+
+app.set('port', port);
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 // set the directory for views
 app.set("views", __dirname + "/public");
 // set view engine
-app.set('view engine', 'jade');
+app.set('view engine', 'html');
+app.engine('html', horgan);
+
 
 app.use(cookieParser());
 app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: true }));
@@ -66,6 +98,31 @@ function ensureAuthenticated(req, res, next) {
     }
 }
 
+// start server
+http.createServer(app).listen(app.get('port'), function () {
+	  console.log('Express server listening at http://' + host + ':' + port);
+	});
+
+// try to render database
+//show table
+app.all('/getData', function (req, res) {
+  getOffers(function (err, offers) {
+    if (err) return res.json(err);
+    res.render('index.html', {offers: offers});
+  });
+});
+
+function getOffers(cb) {
+	  var sql = 'SELECT * FROM Offers';
+	  db.query(sql, function (err, result) {
+		  console.log(err, result);
+	    if (err) return cb(err);
+	    cb(null, result);
+	  });
+	}
+
+// actual app routes
+
 app.get('/auth/sso/callback', function(req, res, next) {
 	authenticated = true;
     var redirect_url = req.session.originalUrl;                
@@ -102,10 +159,3 @@ app.get('/failure', function(req, res) {
 //app.get('/', function (req, res) {
 //    res.send('<h1>Bluemix Service: Single Sign On</h1>' + '<p>Sign In with a Social Identity Source (SIS): Cloud directory, Facebook, Google+ or LinkedIn.</p>' + '<a href="/auth/sso/callback">Sign In with a SIS</a>');
 //});
-var appport = process.env.VCAP_APP_PORT || 8888;
-var host = (process.env.VCAP_APP_HOST || 'localhost');
-var server = app.listen(appport, function () {
-    var host = server.address().address
-    var port = server.address().port
-    console.log('Example app listening at http://%s:%s', host, port);
-});

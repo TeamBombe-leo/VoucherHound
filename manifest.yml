@@ -1,3 +1,8 @@
+declared-services:
+  mysql-database:
+    label: sqldb
+    plan: '100'
+
 applications:
 - path: .
   memory: 384M
@@ -8,3 +13,5 @@ applications:
   disk_quota: 1024M
   env:
   ENABLE_BLUEMIX_DEV_MODE: "true"
+  services:
+  - mysql-database #Identifier for MySQL Bound Service instance
