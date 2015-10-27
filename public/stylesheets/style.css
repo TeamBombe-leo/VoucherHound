@@ -197,6 +197,55 @@ h3.slogan {
 	font-size: 3em;
 }
 
+.voucher-list {
+	background: #FFF;
+	color: #333;
+}
+
+.voucher-list .voucher img {
+	width: 100%;
+	height: auto;
+}
+
+.voucher-list .voucher .pop {
+	color: #FFF;
+	position: relative;
+	display: block;
+}
+
+.voucher-list .voucher .title {
+	position: absolute;
+	top:25%;
+	display: block;
+	width: 100%;
+	margin:0;
+	font-size: 1.5em;
+	line-height: 1.2em;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 5px 10px;
+	background: rgba(0,0,0,0.5);
+}
+
+.voucher-list .voucher .details {
+	
+}
+
+.voucher-list .voucher .details .info {
+	padding: 10px 0;
+	font-size: 0.8em;
+	overflow: hidden;
+}
+
+.voucher-list .voucher .details .buttons {
+	overflow: hidden;
+}
+
+.voucher-list .voucher .details .buttons a {
+	width:100%;
+	border-radius: 0;
+}
+
 .loader {
 	background: transparent url('../images/loader.gif') center center no-repeat;
 	width: 128px;
@@ -256,6 +305,10 @@ h3.slogan {
 		 filter: none;
 	  	 -webkit-filter: none;	
 		 cursor: pointer;
+	}
+	
+	.back-btn {
+		position:fixed;
 	}
 	
 	#mapcanvas {
