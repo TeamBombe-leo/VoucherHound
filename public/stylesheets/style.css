@@ -3,7 +3,7 @@
  */
 
 body,html {
-	background-color: #3b4b54; 
+	background-color: #FFF; 
 	width : 100%;
 	margin: 0 auto;
 	font-family: 'Open Sans', sans-serif;
@@ -353,7 +353,7 @@ h3.slogan {
 /** Mobile Display **/
 @media (max-width: 768px) {
 	
-	body {
+	html,body {
 		background: #3b4b54;
 	}
 	
