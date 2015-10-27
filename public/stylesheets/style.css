@@ -197,9 +197,38 @@ h3.slogan {
 	font-size: 3em;
 }
 
+.map-page .more-btn {
+	display: none;
+} 
+.map-page .vouchers
+{
+	background: #FFF;
+}
+.map-page .voucher-list .voucher {
+	display: none;
+}
+.map-page .voucher-list .voucher.active {
+	display: block;
+	min-height: 417px;
+	color: #333;
+}
+
+.labels {
+	color: red;
+	background-color: white;
+	font-family: "Lucida Grande", "Arial", sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	width: 60px;     
+	border: 2px solid black;
+	white-space: nowrap;
+}
+
 .voucher-list {
 	background: #FFF;
 	color: #333;
+	overflow: hidden;
 }
 
 .voucher-list .voucher img {
@@ -228,7 +257,7 @@ h3.slogan {
 }
 
 .voucher-list .voucher .details {
-	
+	background: #FFF;
 }
 
 .voucher-list .voucher .details .info {
@@ -293,6 +322,20 @@ h3.slogan {
 	position:absolute;
 	top:10px;
 	left:10px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	z-index: 999;
+	background: #fff;
+	box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+	border-radius: 2px;
+}
+
+.more-btn {
+	position:absolute;
+	top:10px;
+	right:10px;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
