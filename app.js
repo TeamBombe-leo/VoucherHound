@@ -42,7 +42,7 @@ app.use(express.static(__dirname + '/public'));
 app.set("views", __dirname + "/public");
 // set view engine
 app.set('view engine', 'html');
-app.engine('html', horgan);
+app.engine('html', hogan);
 
 
 app.use(cookieParser());
@@ -105,7 +105,7 @@ http.createServer(app).listen(app.get('port'), function () {
 
 // try to render database
 //show table
-app.all('/getData', function (req, res) {
+app.all('/vouchers', function (req, res) {
   getOffers(function (err, offers) {
     if (err) return res.json(err);
     res.render('index.html', {offers: offers});
@@ -118,6 +118,23 @@ function getOffers(cb) {
 		  console.log(err, result);
 	    if (err) return cb(err);
 	    cb(null, result);
+	  });
+	}
+
+function createTable() {
+	  var sql = 'CREATE TABLE IF NOT EXISTS Offers ('
+	            + 'OfferId INTEGER PRIMARY KEY AUTO_INCREMENT,'
+	            + 'Title VARCHAR(50),'
+	            + 'Company VARCHAR(50),'
+	            + 'Description VARCHAR(255),'
+	            + 'VoucherCode VARCHAR(20),'
+	            + 'Type VARCHAR(20),'
+	            + 'ExpiryDate DATE,'
+	            + 'Lat VARCHAR(20),'
+	            + 'Long VARCHAR(20)'
+	          + ');'; 
+	  db.query(sql, function (err, result) {
+	    if (err) console.log(err);
 	  });
 	}
 
