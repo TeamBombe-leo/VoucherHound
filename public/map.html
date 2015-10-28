@@ -115,7 +115,7 @@
            
       	    /* Window size changes resize the map */
       	 	$(window).resize(function(){
-               if ($(window).width() > 760 )
+            if ($(window).width() > 760 )
    			{
    				mapcanvas.style.height = '567px';
    				mapcanvas.style.width = '322px';
@@ -165,35 +165,40 @@
    	       voucher1.addListener('click', function() {
    	    	   if ($('#voucher1').hasClass('active')){
 					$('#voucher1').toggleClass('active');	
-					mapcanvas.style.height = '567px';
-					google.maps.event.trigger(map, "resize");
-					//map.setCenter(marker.getPosition());
+					if ($(window).width() > 760 )
+		   			{
+		   				mapcanvas.style.height = '567px';
+		   				google.maps.event.trigger(map, "resize");
+		   			}
+		              else
+		          	   {
+		           		mapcanvas.style.height = $(window).height() + 'px';
+		   				google.maps.event.trigger(map, "resize");
+		          	   }
 				}
    	    	   else {
 					mapcanvas.style.height = '150px';
 					google.maps.event.trigger(map, "resize");
-					//map.setCenter(voucher1.getPosition());
+					map.setCenter(voucher1.getPosition());
 					$('#voucher1').toggleClass('active');
    	    	   }
 	   	   });
-   	       
-   	    voucher2.addListener('click', function() {
-	    	   if ($('#voucher2').hasClass('active')){
-					$('#voucher2').toggleClass('active');	
-					mapcanvas.style.height = '567px';
-					google.maps.event.trigger(map, "resize");
-					//map.setCenter(marker.getPosition());
-				}
-	    	   else {
-					mapcanvas.style.height = '150px';
-					google.maps.event.trigger(map, "resize");
-					//map.setCenter(voucher2.getPosition());
-					$('#voucher2').toggleClass('active');
-	    	   }
-	   	   });
-   	    
-         }
+   	               
+         map.addListener('click', function() {
+        	 $('.voucher-list').children().removeClass('active');
+        	 if ($(window).width() > 760 )
+    			{
+    				mapcanvas.style.height = '567px';
+    				google.maps.event.trigger(map, "resize");
+    			}
+               else
+           	   {
+            		mapcanvas.style.height = $(window).height() + 'px';
+    				google.maps.event.trigger(map, "resize");
+           	   }
+         });
          
+         }
          function error(msg) {
            var s = document.querySelector('#status');
            s.innerHTML = typeof msg == 'string' ? msg : "failed";
@@ -207,6 +212,7 @@
          } else {
            error('not supported');
          }
+
          
       </script>
       <script src="js/prettify.packed.js"></script>

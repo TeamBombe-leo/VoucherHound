@@ -385,7 +385,8 @@ h3.slogan {
 		 cursor: pointer;
 	}
 	
-	.back-btn {
+	.back-btn, 
+	.list-btn {
 		position:fixed;
 	}
 	
