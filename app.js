@@ -11,12 +11,17 @@ var OpenIDConnectStrategy = require('passport-idaas-openidconnect').IDaaSOIDCStr
 var port = (process.env.VCAP_APP_PORT || 3000);
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 
+console.log(port);
+console.log(host);
+
 // all environments
 var app = express();
 
 //check if application is being run in cloud environment
 if (process.env.VCAP_SERVICES) {
   var services = JSON.parse(process.env.VCAP_SERVICES);
+  console.log(services);
+  
 
   // look for a service starting with 'SQL'
   for (var svcName in services) {
@@ -29,7 +34,7 @@ if (process.env.VCAP_SERVICES) {
         password: mysqlCreds.password,
         database: mysqlCreds.name
       });
-
+      console.log(db);
       createTable();
     }
   }
@@ -58,7 +63,7 @@ passport.deserializeUser(function(obj, done) {
    done(null, obj);
 });
 
-var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
+//var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
 var ssoConfig = services.SingleSignOn[0]; 
 var client_id = ssoConfig.credentials.clientId;
 var client_secret = ssoConfig.credentials.secret;
@@ -113,7 +118,8 @@ app.all('/vouchers', function (req, res) {
 });
 
 function getOffers(cb) {
-	  var sql = 'SELECT * FROM Offers';
+	console.log("getting offers...");
+	  var sql = 'SELECT * FROM USER03754.test_data';
 	  db.query(sql, function (err, result) {
 		  console.log(err, result);
 	    if (err) return cb(err);
@@ -122,7 +128,8 @@ function getOffers(cb) {
 	}
 
 function createTable() {
-	  var sql = 'CREATE TABLE IF NOT EXISTS Offers ('
+	console.log("creating table");
+	  var sql = 'CREATE TABLE IF NOT EXISTS USER03754.test_data ('
 	            + 'OfferId INTEGER PRIMARY KEY AUTO_INCREMENT,'
 	            + 'Title VARCHAR(50),'
 	            + 'Company VARCHAR(50),'
@@ -137,6 +144,11 @@ function createTable() {
 	    if (err) console.log(err);
 	  });
 	}
+
+function isNotEmpty(str) {
+	  return str && str.trim().length > 0;
+	}
+
 
 // actual app routes
 
