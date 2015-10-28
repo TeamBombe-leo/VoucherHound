@@ -23,7 +23,7 @@
 	<body class="map-page">
 		<div class="phone-bg">
 			<div class="phone-inner">
-				<a class="back-btn" href="/welcome.html">
+				<a class="back-btn" href="/hello">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
 				<a title="List vouchers" class="more-btn" href="#">
@@ -101,8 +101,33 @@
            
            var mapcanvas = document.createElement('div');
            mapcanvas.id = 'mapcanvas';
-           mapcanvas.style.height = '567px';
-           mapcanvas.style.width = '322px';
+           
+           if ($(window).width() > 760 )
+			{
+				mapcanvas.style.height = '567px';
+				mapcanvas.style.width = '322px';
+			}
+           else
+       	   {
+        		mapcanvas.style.height = $(window).height() + 'px';
+				mapcanvas.style.width = $(window).width() + 'px';
+       	   }
+           
+      	    /* Window size changes resize the map */
+      	 	$(window).resize(function(){
+               if ($(window).width() > 760 )
+   			{
+   				mapcanvas.style.height = '567px';
+   				mapcanvas.style.width = '322px';
+   				google.maps.event.trigger(map, "resize");
+   			}
+              else
+          	   {
+           		mapcanvas.style.height = $(window).height() + 'px';
+   				mapcanvas.style.width = $(window).width() + 'px';
+   				google.maps.event.trigger(map, "resize");
+          	   }
+    	 	});
              
            document.querySelector('#map').appendChild(mapcanvas);
            
@@ -142,12 +167,12 @@
 					$('#voucher1').toggleClass('active');	
 					mapcanvas.style.height = '567px';
 					google.maps.event.trigger(map, "resize");
-					map.setCenter(marker.getPosition());
+					//map.setCenter(marker.getPosition());
 				}
    	    	   else {
 					mapcanvas.style.height = '150px';
 					google.maps.event.trigger(map, "resize");
-					map.setCenter(voucher1.getPosition());
+					//map.setCenter(voucher1.getPosition());
 					$('#voucher1').toggleClass('active');
    	    	   }
 	   	   });
@@ -157,12 +182,12 @@
 					$('#voucher2').toggleClass('active');	
 					mapcanvas.style.height = '567px';
 					google.maps.event.trigger(map, "resize");
-					map.setCenter(marker.getPosition());
+					//map.setCenter(marker.getPosition());
 				}
 	    	   else {
 					mapcanvas.style.height = '150px';
 					google.maps.event.trigger(map, "resize");
-					map.setCenter(voucher2.getPosition());
+					//map.setCenter(voucher2.getPosition());
 					$('#voucher2').toggleClass('active');
 	    	   }
 	   	   });
