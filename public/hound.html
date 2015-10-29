@@ -40,7 +40,7 @@
 				<div class="retailer-list">
 					<div class="clearfix">
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="starbucks" href="#">
 								<img src="images/retailers/starbucks.jpg"/>
 								<div class="location">
 								<span class="glyphicon glyphicon-map-marker"></span>
@@ -49,7 +49,7 @@
 							</a>
 						</div>
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="strada" href="#">
 								<img src="images/retailers/strada.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -60,7 +60,7 @@
 					</div>
 					<div class="clearfix">
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="bella-italia" href="#">
 								<img src="images/retailers/bella-italia.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -69,7 +69,7 @@
 							</a>
 						</div>
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="currys" href="#">
 								<img src="images/retailers/currys.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -80,7 +80,7 @@
 					</div>
 					<div class="clearfix">
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="halfords" href="#">
 								<img src="images/retailers/halfords.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -89,7 +89,7 @@
 							</a>
 						</div>
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="la-tasca" href="#">
 								<img src="images/retailers/la-tasca.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -100,7 +100,7 @@
 					</div>
 					<div class="clearfix">
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="subway" href="#" onClick="retailer_click();">
 								<img src="images/retailers/subway.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -109,7 +109,7 @@
 							</a>
 						</div>
 						<div class="col-xs-6 retailer no-padding">
-							<a href="#">
+							<a id="nero" href="#">
 								<img src="images/retailers/nero.jpg"/>
 								<div class="location">
 									<span class="glyphicon glyphicon-map-marker"></span>
@@ -119,41 +119,352 @@
 						</div>
 					</div>
 				</div>
-				<div class="retailer-more">
-					<div class="voucher-code">
-						<img class="qr-code" src="images/vouchers/qr-code.png">
-						<span class="code">Code: <strong>5EVDAY</strong></span>
-					</div>
-					<img class="logo" src="images/retailers/currys.jpg"/>
-					<div class="info">
-						<div class="col-xs-6 no-padding publisher">
-							<span class="glyphicon glyphicon-user"></span>
-							Currys
+				<div class="retailer-more-list">
+					<div id="starbucks-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>EXTRABUCKS</strong></span>
 						</div>
-						<div class="col-xs-6 no-padding location">
-							<span class="glyphicon glyphicon-map-marker"></span>
-							0.6 miles
+						<img class="logo" src="images/retailers/starbucks.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Starbucks
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.1 miles
+							</div>
 						</div>
-					</div>
-					<div class="friendly">
-						<div class="offer">
-							<div class="col-xs-7 no-padding title">5% off in store</div>
-							<div class="col-xs-5 no-padding">
-								<a class="btn btn-success" href="#">Use it now</a>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">Free coffee with every cake</div>
+								<div class="col-xs-5 no-padding">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="col-xs-7 title">2 for 3 on drink in</div>
+								<div class="col-xs-5 no-padding">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/costa.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Costa</strong><br/>BOGOF on all Grande drinks</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="competition">
-					<h4>Similar Retailers</h4>
-						<div class="offer">
-							<div class="col-xs-3 no-padding title">
-								<img src="images/retailers/maplin.png"/>
+					<div id="strada-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>STRA007</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/strada.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Strada
 							</div>
-							<div class="col-xs-9 no-padding title">
-							<p><strong>Maplins</strong><br/>10% off online &amp; free delivery</p>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.3 miles
 							</div>
-							<div class="col-xs-12 no-padding">
-								<a class="btn btn-success" href="#">View Offer</a>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">25% off meal (mon-fri)</div>
+								<div class="col-xs-5">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/zizzi.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Zizzi Italian</strong><br/>2 for 1 date night special</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="bella-italia-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>CHOWBELLA</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/bella-italia.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Bella Italia
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.5 miles
+							</div>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<p>No offers available</p>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/zizzi.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Zizzi Italian</strong><br/>2 for 1 date night special</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="currys-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>5EVDAY</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/currys.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Currys
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.6 miles
+							</div>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">5% off in store</div>
+								<div class="col-xs-5">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/maplin.png"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Maplins</strong><br/>10% off online &amp; free delivery</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="halfords-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>MOT20NOW</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/halfords.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Halfords
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.7 miles
+							</div>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">&pound;20 MOT test</div>
+								<div class="col-xs-5">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/maplin.png"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Kwik Fit</strong><br/>&pound;74.99 interim service special</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="la-tasca-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>TASCA25</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/la-tasca.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								La Tasca
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.8 miles
+							</div>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">Get 25% off (Mon-Fri)</div>
+								<div class="col-xs-5">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/zizzi.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Zizzi Italian</strong><br/>2 for 1 date night special</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/strada.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Strada</strong><br/>Get 25% off (Mon-Fri)</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="subway-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>ONLYWAY</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/subway.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Subway
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								1.2 miles
+							</div>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">Free upgrade to foot long</div>
+								<div class="col-xs-5 no-padding">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/dominos.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Dominos</strong><br/>Personal pizza only &pound;4.99</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/boots.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Boots</strong><br/>Lunchtime meal deal &pound;2.50</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="nero-more" class="retailer-more">
+						<div class="voucher-code">
+							<img class="qr-code" src="images/vouchers/qr-code.png">
+							<span class="code">Code: <strong>NEROBUD</strong></span>
+						</div>
+						<img class="logo" src="images/retailers/nero.jpg"/>
+						<div class="info">
+							<div class="col-xs-6 no-padding publisher">
+								<span class="glyphicon glyphicon-user"></span>
+								Cafe Nero
+							</div>
+							<div class="col-xs-6 no-padding location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								1.4 miles
+							</div>
+						</div>
+						<div class="friendly">
+							<div class="offer">
+								<div class="col-xs-7 title">2 for 1 on all coffee</div>
+								<div class="col-xs-5 no-padding">
+									<a class="btn btn-success" href="#">Use it now</a>
+								</div>
+							</div>
+						</div>
+						<div class="competition">
+						<h4>Similar Retailers</h4>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/costa.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Costa</strong><br/>BOGOF on all Grande drinks</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offer</a>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="col-xs-4 title">
+									<img src="images/retailers/starbucks.jpg"/>
+								</div>
+								<div class="col-xs-8 no-padding title">
+								<p><strong>Starbucks</strong><br/>Free coffee with every cake</br>2 for 3 on drink in</p>
+								</div>
+								<div class="col-xs-12">
+									<a class="btn btn-info" href="#">View Offers</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -170,18 +481,24 @@
         		}, 3000);
 			});
         	
-        	$('.retailer').click(function (ev) {
-				ev.preventDefault();
-				$('.retailer-list').fadeOut('fast');
+        	$('.retailer a').click(function(){       
+        		retailer_click( $(this) );             
+        	})
+        	
+        	function retailer_click(r) {
+        		$('.retailer-list').fadeOut('fast');
 				$('.back-btn').fadeOut('fast');
 				$('.more-btn').fadeIn('fast');
-				$('.retailer-more').fadeIn('fast');
-			});
+				$('.retailer-more-list').fadeIn('fast');
+				$('#' + r.attr('id') + '-more').toggle('fast');
+        	}
+        	
         	$('.more-btn').click(function (ev) {
 				ev.preventDefault();
 				$('.retailer-list').fadeIn('fast');
 				$('.back-btn').fadeIn('fast');
 				$('.more-btn').fadeOut('fast');
+				$('.retailer-more-list').fadeOut('fast');
 				$('.retailer-more').fadeOut('fast');
 			});
         	$('.friendly .btn-success').click(function (ev) {
