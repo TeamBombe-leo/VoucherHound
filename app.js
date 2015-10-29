@@ -180,6 +180,10 @@ app.get('/list', ensureAuthenticated, function(request, response) {
 	response.render('list');
 });
 
+app.get('/hound', ensureAuthenticated, function(request, response) {
+	response.render('hound');
+});
+
 app.get('/logout', function(req, res){
     authenticated = false;
 	req.logout();

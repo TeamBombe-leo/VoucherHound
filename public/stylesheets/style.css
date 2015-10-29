@@ -189,6 +189,10 @@ h3.slogan {
 	margin-top: 60px;
 }
 
+.map-page .slogan {
+	margin-bottom:20px;
+}
+
 .map-page .alert {
 	margin:0 10%;
 }
@@ -310,6 +314,100 @@ h3.slogan {
 	font-size: 0.8em;
 }
 
+.hound-page .voucher-list {
+	display:none;
+}
+
+.hound-page .loading {
+	margin-top: 60px;
+}
+
+.hound-page .slogan {
+	margin-bottom:20px;
+}
+
+.hound-page .alert {
+	margin:0 10%;
+}
+
+.hound-page .alert span {
+	font-size: 3em;
+}
+
+.retailer-list {
+	display: none;
+}
+
+.retailer-list .retailer a {
+	display: block;
+	position: relative;
+}
+
+.retailer-list .retailer img {
+	width:100%;
+	height:auto;
+}
+
+.retailer-list .retailer .location {
+	background: rgba(255,255,255,0.75);
+	padding: 3px;
+	font-size: 0.8em;
+	color: #333;
+	border-radius: 2px;
+	display: inline;
+	position: absolute;
+	bottom: 3%;
+	right: 3%;
+}
+
+.retailer-list .retailer:hover {
+	opacity: 0.75;
+}
+
+.retailer-more {
+	display: none;
+	color: #333;
+	overflow: hidden;
+	background: #fff;
+	padding-bottom: 30px;
+}
+
+.retailer-more img,
+.retailer-more .offer img {
+	width:100%;
+	height: auto;
+}
+
+.retailer-more .voucher-code {
+	display: none;
+}
+	
+.retailer-more .info {
+	overflow: hidden;
+	padding: 10px 0;
+}
+
+.retailer-more .friendly {
+	overflow: hidden;
+	border-top:1px solid #eee;
+}
+
+.retailer-more .offer {
+	overflow: hidden;
+	border-bottom:1px solid #eee;
+	padding: 5px 0;
+}
+
+.retailer-more .offer .title {
+	line-height: 32px;
+	display: block;
+}
+.retailer-more .competition .offer .title p {
+	text-align: left;
+	line-height: 1.2;
+	margin: 15px 0 0;
+}
+
 .loader {
 	background: transparent url('../images/loader.gif') center center no-repeat;
 	width: 128px;
@@ -344,6 +442,12 @@ h3.slogan {
 	background: #fff;
 	box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
 	border-radius: 2px;
+}
+
+.hound-page .more-btn {
+	left:10px;
+	right: auto;
+	display:none;
 }
 
 .no-padding {
@@ -393,6 +497,10 @@ h3.slogan {
 	#mapcanvas {
 		display: block;
 		margin:0 auto;
+	}
+	
+	.retailer-list .retailer:hover {
+	opacity: 1;
 	}
 
 }

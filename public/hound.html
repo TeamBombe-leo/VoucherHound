@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Voucher Hound</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	    <!-- JQuery -->
+	    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	    
+	    <!-- Bootstrap Files -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+		
+	    <link rel="stylesheet" href="stylesheets/style.css">
+		
+	</head>
+	
+	<body class="hound-page">
+		<div class="phone-bg">
+			<div class="phone-inner">
+				<a class="back-btn" href="/hello">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a class="more-btn" href="#">
+					<span class="glyphicon glyphicon-th-list"></span>
+				</a>
+				<div class="loading">
+					<span class="loader"></span>
+					<h4 class="slogan">Requesting your location...</h4>
+					<div class="alert alert-warning">
+						<span class="glyphicon glyphicon-map-marker"></span>
+						<p>Please allow Voucher Hound to use your location</p>
+					</div>
+				</div>
+				<div class="retailer-list">
+					<div class="clearfix">
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/starbucks.jpg"/>
+								<div class="location">
+								<span class="glyphicon glyphicon-map-marker"></span>
+								0.1 miles
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/strada.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									0.3 miles
+								</div>
+							</a>		
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/bella-italia.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									0.5 miles
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/currys.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									0.6 miles
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/halfords.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									0.7 miles
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/la-tasca.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									0.8 miles
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="clearfix">
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/subway.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									1.2 miles
+								</div>
+							</a>
+						</div>
+						<div class="col-xs-6 retailer no-padding">
+							<a href="#">
+								<img src="images/retailers/nero.jpg"/>
+								<div class="location">
+									<span class="glyphicon glyphicon-map-marker"></span>
+									1.4 miles
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="retailer-more">
+					<div class="voucher-code">
+						<img class="qr-code" src="images/vouchers/qr-code.png">
+						<span class="code">Code: <strong>5EVDAY</strong></span>
+					</div>
+					<img class="logo" src="images/retailers/currys.jpg"/>
+					<div class="info">
+						<div class="col-xs-6 no-padding publisher">
+							<span class="glyphicon glyphicon-user"></span>
+							Currys
+						</div>
+						<div class="col-xs-6 no-padding location">
+							<span class="glyphicon glyphicon-map-marker"></span>
+							0.6 miles
+						</div>
+					</div>
+					<div class="friendly">
+						<div class="offer">
+							<div class="col-xs-7 no-padding title">5% off in store</div>
+							<div class="col-xs-5 no-padding">
+								<a class="btn btn-success" href="#">Use it now</a>
+							</div>
+						</div>
+					</div>
+					<div class="competition">
+					<h4>Similar Retailers</h4>
+						<div class="offer">
+							<div class="col-xs-3 no-padding title">
+								<img src="images/retailers/maplin.png"/>
+							</div>
+							<div class="col-xs-9 no-padding title">
+							<p><strong>Maplins</strong><br/>10% off online &amp; free delivery</p>
+							</div>
+							<div class="col-xs-12 no-padding">
+								<a class="btn btn-success" href="#">View Offer</a>
+							</div>
+						</div>
+					</div>
+				</div>
+        <script type="text/javascript">
+        	$(document).ready(function() {
+        		window.setTimeout(function () {
+        			$('.loading > .slogan').text('Found you! Hounding for retailers...');
+        			$('.loading > .alert').fadeOut('fast');
+        		}, 1500);
+        		window.setTimeout(function () {
+        			$('.loading').fadeOut('fast');
+        			$('.retailer-list').fadeIn('fast');
+        		}, 3000);
+			});
+        	
+        	$('.retailer').click(function (ev) {
+				ev.preventDefault();
+				$('.retailer-list').fadeOut('fast');
+				$('.back-btn').fadeOut('fast');
+				$('.more-btn').fadeIn('fast');
+				$('.retailer-more').fadeIn('fast');
+			});
+        	$('.more-btn').click(function (ev) {
+				ev.preventDefault();
+				$('.retailer-list').fadeIn('fast');
+				$('.back-btn').fadeIn('fast');
+				$('.more-btn').fadeOut('fast');
+				$('.retailer-more').fadeOut('fast');
+			});
+        	$('.friendly .btn-success').click(function (ev) {
+				ev.preventDefault();
+				$('.retailer-more .logo').toggle('fast');
+				$('.retailer-more .voucher-code').toggle('fast');
+			});
+		</script>      
+   </body>
+</html>
