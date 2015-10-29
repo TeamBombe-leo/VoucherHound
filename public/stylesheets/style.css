@@ -161,6 +161,14 @@ h3.slogan {
 	font-weight: bold;
 }
 
+.welcome-page .logout {
+	padding-top: 20px
+}
+
+.welcome-page .logout .btn {
+	display: block;
+}
+
 .option-menu {
 	padding: 0 20px;
 }

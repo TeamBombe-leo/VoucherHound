@@ -21,9 +21,6 @@
 	</head>
 	
 	<body class="map-page">
-	<script type="text/javascript">
-		var data = {{ data }};
-	</script>
 		<div class="phone-bg">
 			<div class="phone-inner">
 				<a class="back-btn" href="/dashboard">
@@ -42,7 +39,7 @@
 				</div>
 				<div id="map"></div>
 				<div class="voucher-list">
-					<div class="row voucher" id="voucher1">
+					<div class="row voucher" id="v1">
 						<div class="col-xs-12">
 							<div class="pop">
 								<span class="title">Well deserved 2 for 1 coffee break?</span>
@@ -151,23 +148,15 @@
                icon: 'images/marker.png'
            });
            
-   	       var voucher1 = new google.maps.Marker({
-        	   position: {lat:51.898491, lng:-2.077888},
+   	       var v1 = new google.maps.Marker({
+        	   position: {lat:51.50532, lng:-0.113079},
         	   map: map,
-        	   animation: google.maps.Animation.DROP,
-        	   title: 'voucher 1'
-           });
+        	   animation: google.maps.Animation.DROP
+        	   });
    	       
-	   	    var voucher2 = new google.maps.Marker({
-	     	   position: {lat:51.893411, lng:-2.077668},
-	     	   map: map,
-	     	   animation: google.maps.Animation.DROP,
-	     	   title: 'voucher 2'
-	        });
-   	       
-   	       voucher1.addListener('click', function() {
-   	    	   if ($('#voucher1').hasClass('active')){
-					$('#voucher1').toggleClass('active');	
+   	       v1.addListener('click', function() {
+   	    	   if ($('#v1').hasClass('active')){
+					$('#v1').toggleClass('active');	
 					if ($(window).width() > 760 )
 		   			{
 		   				mapcanvas.style.height = '567px';
@@ -182,9 +171,92 @@
    	    	   else {
 					mapcanvas.style.height = '150px';
 					google.maps.event.trigger(map, "resize");
-					map.setCenter(voucher1.getPosition());
-					$('#voucher1').toggleClass('active');
+					map.setCenter(v1.getPosition());
+					$('#v1').toggleClass('active');
    	    	   }
+	   	   });
+   	       
+   	    var v2 = new google.maps.Marker({
+     	   position: {lat:51.506718, lng:-0.114380},
+     	   map: map,
+     	   animation: google.maps.Animation.DROP
+     	   });
+	       
+	       v2.addListener('click', function() {
+	    	   if ($('#v2').hasClass('active')){
+					$('#v2').toggleClass('active');	
+					if ($(window).width() > 760 )
+		   			{
+		   				mapcanvas.style.height = '567px';
+		   				google.maps.event.trigger(map, "resize");
+		   			}
+		              else
+		          	   {
+		           		mapcanvas.style.height = $(window).height() + 'px';
+		   				google.maps.event.trigger(map, "resize");
+		          	   }
+				}
+	    	   else {
+					mapcanvas.style.height = '150px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(v2.getPosition());
+					$('#v2').toggleClass('active');
+	    	   }
+	   	   });
+	       
+	       var v3 = new google.maps.Marker({
+        	   position: {lat:51.502939, lng:-0.115695},
+        	   map: map,
+        	   animation: google.maps.Animation.DROP
+        	   });
+   	       
+   	       v3.addListener('click', function() {
+   	    	   if ($('#v3').hasClass('active')){
+					$('#v3').toggleClass('active');	
+					if ($(window).width() > 760 )
+		   			{
+		   				mapcanvas.style.height = '567px';
+		   				google.maps.event.trigger(map, "resize");
+		   			}
+		              else
+		          	   {
+		           		mapcanvas.style.height = $(window).height() + 'px';
+		   				google.maps.event.trigger(map, "resize");
+		          	   }
+				}
+   	    	   else {
+					mapcanvas.style.height = '150px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(v3.getPosition());
+					$('#v3').toggleClass('active');
+   	    	   }
+	   	   });
+   	    var v4 = new google.maps.Marker({
+     	   position: {lat:51.502877, lng:-0.118638},
+     	   map: map,
+     	   animation: google.maps.Animation.DROP
+     	   });
+	       
+	       v4.addListener('click', function() {
+	    	   if ($('#v4').hasClass('active')){
+					$('#v4').toggleClass('active');	
+					if ($(window).width() > 760 )
+		   			{
+		   				mapcanvas.style.height = '567px';
+		   				google.maps.event.trigger(map, "resize");
+		   			}
+		              else
+		          	   {
+		           		mapcanvas.style.height = $(window).height() + 'px';
+		   				google.maps.event.trigger(map, "resize");
+		          	   }
+				}
+	    	   else {
+					mapcanvas.style.height = '150px';
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(v4.getPosition());
+					$('#v4').toggleClass('active');
+	    	   }
 	   	   });
    	               
          map.addListener('click', function() {
