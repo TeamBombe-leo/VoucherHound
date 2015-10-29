@@ -17,6 +17,7 @@ console.log(host);
 // all environments
 var app = express();
 
+// DATABASE CONNECTION
 //check if application is being run in cloud environment
 if (process.env.VCAP_SERVICES) {
   var services = JSON.parse(process.env.VCAP_SERVICES);
@@ -108,25 +109,7 @@ http.createServer(app).listen(app.get('port'), function () {
 	  console.log('Express server listening at http://' + host + ':' + port);
 	});
 
-// try to render database
-//show table
-//app.all('/vouchers', function (req, res) {
-//getOffers(function (err, offers) {
-//    if (err) return res.json(err);
-//    res.render('index.html', {offers: offers});
-//  });
-//});
-
-//app.get('/vouchers'), function(req, res){
-//	  var data = getArray();
-//	  console.log(data);
-//	    res.send('test');
-//	  };
-	  
-app.get('/vouchers', ensureAuthenticated, function(request, response) {
-	var data = getArray();
-		 response.render('map.html', {data: data});
-});
+// functions
 
 function getOffers(cb) {
 	console.log("getting offers...");
@@ -162,15 +145,19 @@ function isNotEmpty(str) {
 
 // ARRAY FUNCTION
 
-function getArray() {
-    return [ [ "1, Free coffee with every cake, Starbucks, Offer ends 25/12/2015, WET97906144, Available in store, 01/04/16, 51.506151, -0.115085"], 
-             [ "2, 15% off all items on the breakfast menu, Strada, Offer available from 8am till 11am on breakfast items only when presenting this voucher, BRI99178872, Voucher required, 01/02/16, 51.504953, -0.117323"], 
-             [ "3, " ] ];
-};
-
-
+//function getArray() {
+//    return ["{" [ "1", "Free coffee with every cake", "Starbucks", "Offer ends 25/12/2015", "WET97906144", "Available in store", "01/04/16", "51.506151", "-0.115085"], 
+//             [ "2, 15% off all items on the breakfast menu, Strada, Offer available from 8am till 11am on breakfast items only when presenting this voucher, BRI99178872, Voucher required, 01/02/16, 51.504953, -0.117323"], 
+//            [ "3", "Free glass of wine or soft drink with any pasta dish", "Bella Italia", "Customers must be over 18 to claim alcohol with their meal", "Offer applies before 5pm everyday when presenting this voucher", "BEL60525543", "Voucher required", "01/12/16", "51.506718", "-0.114380"],
+//             [ "6",  "Toddlers eat free with any adult main", "Cafe Rouge", "Offer applies Monday to Friday only before 3pm with this voucher", "CAF39292084", "Available in store", "01/03/16", "51.507188", "-0.111523"], "}"];
+//};
 
 // actual app routes
+
+app.get('/vouchers', ensureAuthenticated, function(request, response) {
+	var data = getArray();
+		 response.render('map.html', {data: data});
+});
 
 app.get('/auth/sso/callback', function(req, res, next) {
 	authenticated = true;
@@ -180,17 +167,11 @@ app.get('/auth/sso/callback', function(req, res, next) {
         failureRedirect: '/failure',                        
     })(req,res,next);
 });
-
-//app.get('/hello', ensureAuthenticated, function(request, response) {
-//	 response.redirect('/welcome.html');
-//});
-    
+  
 app.get('/dashboard', ensureAuthenticated, function(request, response) {
 	  var displayName = request.user['_json'].displayName;
 	  response.render('welcome', {displayn: displayName});
-	//response.redirect('/welcome.html');
-    //response.send('<!DOCTYPE html><html><head><title>Voucher Hound</title><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="stylesheets/style.css" media="min-device-width: 481px"><link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="stylesheets/mobile.css"></head><body><div id="bodyContent"><img class = "newappIconWelcome" src="images/hound_dog_logo.png"><div id="welcomeContent"><h3>Welcome ' + displayName + '</h3></div><div id="optionMenu"><ul><li title="Vouchers"><img class="imgGrayscale" src="images/vouchers.png" width="90px" height="90px"></li><li title="Hound"><img class="imgGrayscale" src="images/geo.png" width="90px" height="90px"></li><li title="Map"><a href="/map"><img class="imgGrayscale" src="images/map.png" width="90px" height="90px"></a></li><li title="Account"><img class="imgGrayscale" src="images/account.png" width="90px" height="90px"></li><li title="Settings"><img class="imgGrayscale" src="images/preferences.png" width="90px" height="90px"></li><li title="Log Out"><a href="/logout"><img class="imgGrayscale" src="images/logout.png" width="90px" height="90px"></a></li></ul></div></div></body></html>');
-});
+	  });
 
 app.get('/map', ensureAuthenticated, function(request, response) {
 	var data = getArray();
@@ -214,7 +195,3 @@ app.get('/logout', function(req, res){
 app.get('/failure', function(req, res) { 
     res.redirect('/'); 
 });
-
-//app.get('/', function (req, res) {
-//    res.send('<h1>Bluemix Service: Single Sign On</h1>' + '<p>Sign In with a Social Identity Source (SIS): Cloud directory, Facebook, Google+ or LinkedIn.</p>' + '<a href="/auth/sso/callback">Sign In with a SIS</a>');
-//});
