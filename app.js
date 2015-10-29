@@ -154,11 +154,6 @@ function isNotEmpty(str) {
 
 // actual app routes
 
-app.get('/vouchers', ensureAuthenticated, function(request, response) {
-	var data = getArray();
-		 response.render('map.html', {data: data});
-});
-
 app.get('/auth/sso/callback', function(req, res, next) {
 	authenticated = true;
     var redirect_url = req.session.originalUrl;                
@@ -174,8 +169,7 @@ app.get('/dashboard', ensureAuthenticated, function(request, response) {
 	  });
 
 app.get('/map', ensureAuthenticated, function(request, response) {
-	var data = getArray();
-	response.render('map', {data: data});
+	response.render('map');
 });
 
 app.get('/list', ensureAuthenticated, function(request, response) {
