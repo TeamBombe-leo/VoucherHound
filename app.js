@@ -30,7 +30,7 @@ if (process.env.VCAP_SERVICES) {
       var db = mysql.createConnection({
         host: mysqlCreds.host,
         port: mysqlCreds.port,
-        user: mysqlCreds.user,
+        user: mysqlCreds.username,
         password: mysqlCreds.password,
         database: mysqlCreds.name
       });
@@ -111,11 +111,17 @@ http.createServer(app).listen(app.get('port'), function () {
 // try to render database
 //show table
 app.all('/vouchers', function (req, res) {
-  getOffers(function (err, offers) {
+ getOffers(function (err, offers) {
     if (err) return res.json(err);
     res.render('index.html', {offers: offers});
   });
 });
+
+//app.get('/vouchers'), function(req, res){
+//	  var data = getArray();
+//	  console.log(data);
+//	    res.send('test');
+//	  };
 
 function getOffers(cb) {
 	console.log("getting offers...");
@@ -148,6 +154,14 @@ function createTable() {
 function isNotEmpty(str) {
 	  return str && str.trim().length > 0;
 	}
+
+// ARRAY FUNCTION
+
+function getArray() {
+    return [ [ "1, Free coffee with every cake, Starbucks, Offer ends 25/12/2015, WET97906144, Available in store, 01/04/16, 51.506151, -0.115085"], 
+             [ "" ], [ "" ] ];
+};
+
 
 
 // actual app routes

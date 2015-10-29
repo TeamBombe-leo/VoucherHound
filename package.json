@@ -12,6 +12,7 @@
         "hogan-express": "*",
         "request":"*",
         "mysql": "*",
+        "ibm_db": "*",
         "body-parser": "latest",
         "cookie-parser": "latest",
         "express-session": "latest"

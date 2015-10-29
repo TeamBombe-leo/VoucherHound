@@ -1,7 +1,7 @@
 declared-services:
   mysql-database:
-    label: sqldb
-    plan: 'standard'
+    label: cleardb
+    plan: 'spark'
 
 applications:
 - path: .
@@ -14,4 +14,4 @@ applications:
   env:
   ENABLE_BLUEMIX_DEV_MODE: "true"
   services:
-  - mysql-db #Identifier for MySQL Bound Service instance
+  - mysql-db-two #Identifier for MySQL Bound Service instance
