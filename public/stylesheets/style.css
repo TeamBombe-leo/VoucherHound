@@ -467,6 +467,18 @@ h3.slogan {
 	display:none;
 }
 
+.bubble {
+	position:fixed;
+	display: block;
+	width: 30%;
+	left: 3%;
+	top: 20%;
+	font-size: 1.5em;
+	padding: 20px;
+	border-radius: 20px;
+	text-align: center;
+}
+
 .no-padding {
    padding: 0 !important;
    margin: 0 !important;
@@ -518,6 +530,10 @@ h3.slogan {
 	
 	.retailer-list .retailer:hover {
 	opacity: 1;
+	}
+	
+	.bubble {
+		display:none;
 	}
 
 }
