@@ -110,18 +110,23 @@ http.createServer(app).listen(app.get('port'), function () {
 
 // try to render database
 //show table
-app.all('/vouchers', function (req, res) {
- getOffers(function (err, offers) {
-    if (err) return res.json(err);
-    res.render('index.html', {offers: offers});
-  });
-});
+//app.all('/vouchers', function (req, res) {
+//getOffers(function (err, offers) {
+//    if (err) return res.json(err);
+//    res.render('index.html', {offers: offers});
+//  });
+//});
 
 //app.get('/vouchers'), function(req, res){
 //	  var data = getArray();
 //	  console.log(data);
 //	    res.send('test');
 //	  };
+	  
+app.get('/vouchers', ensureAuthenticated, function(request, response) {
+	var data = getArray();
+		 response.render('map.html', {data: data});
+});
 
 function getOffers(cb) {
 	console.log("getting offers...");
