@@ -164,7 +164,8 @@ function isNotEmpty(str) {
 
 function getArray() {
     return [ [ "1, Free coffee with every cake, Starbucks, Offer ends 25/12/2015, WET97906144, Available in store, 01/04/16, 51.506151, -0.115085"], 
-             [ "" ], [ "" ] ];
+             [ "2, 15% off all items on the breakfast menu, Strada, Offer available from 8am till 11am on breakfast items only when presenting this voucher, BRI99178872, Voucher required, 01/02/16, 51.504953, -0.117323"], 
+             [ "3, " ] ];
 };
 
 
@@ -192,7 +193,8 @@ app.get('/dashboard', ensureAuthenticated, function(request, response) {
 });
 
 app.get('/map', ensureAuthenticated, function(request, response) {
-	response.render('map');
+	var data = getArray();
+	response.render('map', {data: data});
 });
 
 app.get('/list', ensureAuthenticated, function(request, response) {
